@@ -30,6 +30,16 @@ model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accur
 X_train = []
 y_train = []
 
+def determine_winner(player_move, ai_move):
+    if player_move == ai_move:
+        return "It's a tie!"
+    elif (player_move == 'rock' and ai_move == 'scissors') or \
+         (player_move == 'scissors' and ai_move == 'paper') or \
+         (player_move == 'paper' and ai_move == 'rock'):
+        return "Player wins!"
+    else:
+        return "AI wins!"
+
 # Main game loop
 def play_game():
     global X_train, y_train
